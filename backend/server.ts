@@ -2,6 +2,7 @@ import express from 'express';
 import type { Application, Request, Response } from 'express';
 import { z } from 'zod';
 import AccountRouter from './Routes/AccountRoutes.ts';
+import TransactionRouter from './Routes/TransactionRoutes.ts';  
 
 
 const app: Application = express();
@@ -40,3 +41,4 @@ app.listen(port, () => {
 });
 
 app.use('/api', AccountRouter);
+app.use('/api/transactions', TransactionRouter);
