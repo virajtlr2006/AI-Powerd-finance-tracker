@@ -76,6 +76,16 @@ const page = () => {
               <p className="text-3xl font-bold text-green-600 mt-2">${account.balance}</p>
             </div>
           </div>
+          <a href={`/transactions/all/${account.acc_no}`}>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              View Transactions
+            </button>
+          </a>
+          <a href={`/transactions/new/${account.acc_no}`}>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              New Transactions
+            </button>
+          </a>
         </div>
       ) : !error ? (
         <p className="text-center text-gray-600 mt-10 text-lg">Loading account details...</p>

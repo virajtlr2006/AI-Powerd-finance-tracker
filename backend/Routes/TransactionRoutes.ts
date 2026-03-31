@@ -8,14 +8,14 @@ import { z } from "zod";
 const router: Router = express.Router()
 
 // 📋 List Transactions
-router.get("/", async (req: Request, res: Response) => {
+router.get("/:acc_no", async (req: Request, res: Response) => {
   const transactionQuerySchema = z.object({
-    acc_no: z.number().describe("Account number is required")
+    acc_no: z.string().describe("Account number is required")
   });
 
   try {
     // ✔️ Validate request query against schema
-    const validation = transactionQuerySchema.safeParse(req.body);
+    const validation = transactionQuerySchema.safeParse(req.params);
   
     if (!validation.success) {
       // ❌ Return validation error if schema check fails
